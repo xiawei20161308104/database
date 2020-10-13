@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xw.database.mapper.cOrderDeliveryDetailMapper">
+  <resultMap id="BaseResultMap" type="com.xw.database.bean.cOrderDeliveryDetail">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="updater" jdbcType="VARCHAR" property="updater" />
+    <result column="valid" jdbcType="BIT" property="valid" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="bar" jdbcType="VARCHAR" property="bar" />
+    <result column="c_sku_code" jdbcType="VARCHAR" property="cSkuCode" />
+    <result column="c_sku_name" jdbcType="VARCHAR" property="cSkuName" />
+    <result column="c_spu_code" jdbcType="VARCHAR" property="cSpuCode" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="goods_code" jdbcType="VARCHAR" property="goodsCode" />
+    <result column="marking_price" jdbcType="BIGINT" property="markingPrice" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="order_delivery_code" jdbcType="VARCHAR" property="orderDeliveryCode" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="retail_price" jdbcType="BIGINT" property="retailPrice" />
+    <result column="sale_price" jdbcType="BIGINT" property="salePrice" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, code, create_time, creator, update_time, updater, valid, version, bar, c_sku_code, 
+    c_sku_name, c_spu_code, count, goods_code, marking_price, order_code, order_delivery_code, 
+    order_no, retail_price, sale_price
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TD_SYS_C_ORDER_DELIVERY_DETAIL
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from TD_SYS_C_ORDER_DELIVERY_DETAIL
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xw.database.bean.cOrderDeliveryDetail">
+    insert into TD_SYS_C_ORDER_DELIVERY_DETAIL (id, code, create_time, 
+      creator, update_time, updater, 
+      valid, version, bar, c_sku_code, 
+      c_sku_name, c_spu_code, count, 
+      goods_code, marking_price, order_code, 
+      order_delivery_code, order_no, retail_price, 
+      sale_price)
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=BIT}, #{version,jdbcType=INTEGER}, #{bar,jdbcType=VARCHAR}, #{cSkuCode,jdbcType=VARCHAR}, 
+      #{cSkuName,jdbcType=VARCHAR}, #{cSpuCode,jdbcType=VARCHAR}, #{count,jdbcType=INTEGER}, 
+      #{goodsCode,jdbcType=VARCHAR}, #{markingPrice,jdbcType=BIGINT}, #{orderCode,jdbcType=VARCHAR}, 
+      #{orderDeliveryCode,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, #{retailPrice,jdbcType=BIGINT}, 
+      #{salePrice,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xw.database.bean.cOrderDeliveryDetail">
+    insert into TD_SYS_C_ORDER_DELIVERY_DETAIL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="valid != null">
+        valid,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="bar != null">
+        bar,
+      </if>
+      <if test="cSkuCode != null">
+        c_sku_code,
+      </if>
+      <if test="cSkuName != null">
+        c_sku_name,
+      </if>
+      <if test="cSpuCode != null">
+        c_spu_code,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+      <if test="goodsCode != null">
+        goods_code,
+      </if>
+      <if test="markingPrice != null">
+        marking_price,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+      <if test="orderDeliveryCode != null">
+        order_delivery_code,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="retailPrice != null">
+        retail_price,
+      </if>
+      <if test="salePrice != null">
+        sale_price,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="bar != null">
+        #{bar,jdbcType=VARCHAR},
+      </if>
+      <if test="cSkuCode != null">
+        #{cSkuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cSkuName != null">
+        #{cSkuName,jdbcType=VARCHAR},
+      </if>
+      <if test="cSpuCode != null">
+        #{cSpuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="goodsCode != null">
+        #{goodsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="markingPrice != null">
+        #{markingPrice,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDeliveryCode != null">
+        #{orderDeliveryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="retailPrice != null">
+        #{retailPrice,jdbcType=BIGINT},
+      </if>
+      <if test="salePrice != null">
+        #{salePrice,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xw.database.bean.cOrderDeliveryDetail">
+    update TD_SYS_C_ORDER_DELIVERY_DETAIL
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null">
+        valid = #{valid,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="bar != null">
+        bar = #{bar,jdbcType=VARCHAR},
+      </if>
+      <if test="cSkuCode != null">
+        c_sku_code = #{cSkuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cSkuName != null">
+        c_sku_name = #{cSkuName,jdbcType=VARCHAR},
+      </if>
+      <if test="cSpuCode != null">
+        c_spu_code = #{cSpuCode,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="goodsCode != null">
+        goods_code = #{goodsCode,jdbcType=VARCHAR},
+      </if>
+      <if test="markingPrice != null">
+        marking_price = #{markingPrice,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDeliveryCode != null">
+        order_delivery_code = #{orderDeliveryCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="retailPrice != null">
+        retail_price = #{retailPrice,jdbcType=BIGINT},
+      </if>
+      <if test="salePrice != null">
+        sale_price = #{salePrice,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xw.database.bean.cOrderDeliveryDetail">
+    update TD_SYS_C_ORDER_DELIVERY_DETAIL
+    set code = #{code,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=VARCHAR},
+      valid = #{valid,jdbcType=BIT},
+      version = #{version,jdbcType=INTEGER},
+      bar = #{bar,jdbcType=VARCHAR},
+      c_sku_code = #{cSkuCode,jdbcType=VARCHAR},
+      c_sku_name = #{cSkuName,jdbcType=VARCHAR},
+      c_spu_code = #{cSpuCode,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      goods_code = #{goodsCode,jdbcType=VARCHAR},
+      marking_price = #{markingPrice,jdbcType=BIGINT},
+      order_code = #{orderCode,jdbcType=VARCHAR},
+      order_delivery_code = #{orderDeliveryCode,jdbcType=VARCHAR},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      retail_price = #{retailPrice,jdbcType=BIGINT},
+      sale_price = #{salePrice,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xw.database.mapper.cOrderDeliveryMapper">
+  <resultMap id="BaseResultMap" type="com.xw.database.bean.cOrderDelivery">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="code" jdbcType="VARCHAR" property="code" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="updater" jdbcType="VARCHAR" property="updater" />
+    <result column="valid" jdbcType="BIT" property="valid" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="c_member_code" jdbcType="VARCHAR" property="cMemberCode" />
+    <result column="c_order_deliveryer_code" jdbcType="VARCHAR" property="cOrderDeliveryerCode" />
+    <result column="c_order_receiver_code" jdbcType="VARCHAR" property="cOrderReceiverCode" />
+    <result column="cash_trade_code" jdbcType="VARCHAR" property="cashTradeCode" />
+    <result column="company_code" jdbcType="VARCHAR" property="companyCode" />
+    <result column="dept_code" jdbcType="VARCHAR" property="deptCode" />
+    <result column="favour_money" jdbcType="BIGINT" property="favourMoney" />
+    <result column="member_mobile" jdbcType="VARCHAR" property="memberMobile" />
+    <result column="member_name" jdbcType="VARCHAR" property="memberName" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="order_deliveryer_name" jdbcType="VARCHAR" property="orderDeliveryerName" />
+    <result column="order_no" jdbcType="VARCHAR" property="orderNo" />
+    <result column="order_receiver_name" jdbcType="VARCHAR" property="orderReceiverName" />
+    <result column="pay_money" jdbcType="BIGINT" property="payMoney" />
+    <result column="pay_time" jdbcType="TIMESTAMP" property="payTime" />
+    <result column="pay_type_name" jdbcType="VARCHAR" property="payTypeName" />
+    <result column="pay_type" jdbcType="VARCHAR" property="payType" />
+    <result column="total_money" jdbcType="BIGINT" property="totalMoney" />
+    <result column="freight_money" jdbcType="BIGINT" property="freightMoney" />
+    <result column="order_receive_dept_code" jdbcType="VARCHAR" property="orderReceiveDeptCode" />
+    <result column="payee_dept_code" jdbcType="VARCHAR" property="payeeDeptCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, code, create_time, creator, update_time, updater, valid, version, c_member_code, 
+    c_order_deliveryer_code, c_order_receiver_code, cash_trade_code, company_code, dept_code, 
+    favour_money, member_mobile, member_name, order_code, order_deliveryer_name, order_no, 
+    order_receiver_name, pay_money, pay_time, pay_type_name, pay_type, total_money, freight_money, 
+    order_receive_dept_code, payee_dept_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from TD_SYS_C_ORDER_DELIVERY
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from TD_SYS_C_ORDER_DELIVERY
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xw.database.bean.cOrderDelivery">
+    insert into TD_SYS_C_ORDER_DELIVERY (id, code, create_time, 
+      creator, update_time, updater, 
+      valid, version, c_member_code, 
+      c_order_deliveryer_code, c_order_receiver_code, 
+      cash_trade_code, company_code, dept_code, 
+      favour_money, member_mobile, member_name, 
+      order_code, order_deliveryer_name, order_no, 
+      order_receiver_name, pay_money, pay_time, 
+      pay_type_name, pay_type, total_money, 
+      freight_money, order_receive_dept_code, payee_dept_code
+      )
+    values (#{id,jdbcType=BIGINT}, #{code,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{creator,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updater,jdbcType=VARCHAR}, 
+      #{valid,jdbcType=BIT}, #{version,jdbcType=INTEGER}, #{cMemberCode,jdbcType=VARCHAR}, 
+      #{cOrderDeliveryerCode,jdbcType=VARCHAR}, #{cOrderReceiverCode,jdbcType=VARCHAR}, 
+      #{cashTradeCode,jdbcType=VARCHAR}, #{companyCode,jdbcType=VARCHAR}, #{deptCode,jdbcType=VARCHAR}, 
+      #{favourMoney,jdbcType=BIGINT}, #{memberMobile,jdbcType=VARCHAR}, #{memberName,jdbcType=VARCHAR}, 
+      #{orderCode,jdbcType=VARCHAR}, #{orderDeliveryerName,jdbcType=VARCHAR}, #{orderNo,jdbcType=VARCHAR}, 
+      #{orderReceiverName,jdbcType=VARCHAR}, #{payMoney,jdbcType=BIGINT}, #{payTime,jdbcType=TIMESTAMP}, 
+      #{payTypeName,jdbcType=VARCHAR}, #{payType,jdbcType=VARCHAR}, #{totalMoney,jdbcType=BIGINT}, 
+      #{freightMoney,jdbcType=BIGINT}, #{orderReceiveDeptCode,jdbcType=VARCHAR}, #{payeeDeptCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xw.database.bean.cOrderDelivery">
+    insert into TD_SYS_C_ORDER_DELIVERY
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="code != null">
+        code,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="updater != null">
+        updater,
+      </if>
+      <if test="valid != null">
+        valid,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="cMemberCode != null">
+        c_member_code,
+      </if>
+      <if test="cOrderDeliveryerCode != null">
+        c_order_deliveryer_code,
+      </if>
+      <if test="cOrderReceiverCode != null">
+        c_order_receiver_code,
+      </if>
+      <if test="cashTradeCode != null">
+        cash_trade_code,
+      </if>
+      <if test="companyCode != null">
+        company_code,
+      </if>
+      <if test="deptCode != null">
+        dept_code,
+      </if>
+      <if test="favourMoney != null">
+        favour_money,
+      </if>
+      <if test="memberMobile != null">
+        member_mobile,
+      </if>
+      <if test="memberName != null">
+        member_name,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+      <if test="orderDeliveryerName != null">
+        order_deliveryer_name,
+      </if>
+      <if test="orderNo != null">
+        order_no,
+      </if>
+      <if test="orderReceiverName != null">
+        order_receiver_name,
+      </if>
+      <if test="payMoney != null">
+        pay_money,
+      </if>
+      <if test="payTime != null">
+        pay_time,
+      </if>
+      <if test="payTypeName != null">
+        pay_type_name,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="totalMoney != null">
+        total_money,
+      </if>
+      <if test="freightMoney != null">
+        freight_money,
+      </if>
+      <if test="orderReceiveDeptCode != null">
+        order_receive_dept_code,
+      </if>
+      <if test="payeeDeptCode != null">
+        payee_dept_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="code != null">
+        #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null">
+        #{valid,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="cMemberCode != null">
+        #{cMemberCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrderDeliveryerCode != null">
+        #{cOrderDeliveryerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrderReceiverCode != null">
+        #{cOrderReceiverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cashTradeCode != null">
+        #{cashTradeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null">
+        #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null">
+        #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="favourMoney != null">
+        #{favourMoney,jdbcType=BIGINT},
+      </if>
+      <if test="memberMobile != null">
+        #{memberMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="memberName != null">
+        #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDeliveryerName != null">
+        #{orderDeliveryerName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderReceiverName != null">
+        #{orderReceiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="payMoney != null">
+        #{payMoney,jdbcType=BIGINT},
+      </if>
+      <if test="payTime != null">
+        #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTypeName != null">
+        #{payTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="totalMoney != null">
+        #{totalMoney,jdbcType=BIGINT},
+      </if>
+      <if test="freightMoney != null">
+        #{freightMoney,jdbcType=BIGINT},
+      </if>
+      <if test="orderReceiveDeptCode != null">
+        #{orderReceiveDeptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeDeptCode != null">
+        #{payeeDeptCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xw.database.bean.cOrderDelivery">
+    update TD_SYS_C_ORDER_DELIVERY
+    <set>
+      <if test="code != null">
+        code = #{code,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updater != null">
+        updater = #{updater,jdbcType=VARCHAR},
+      </if>
+      <if test="valid != null">
+        valid = #{valid,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="cMemberCode != null">
+        c_member_code = #{cMemberCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrderDeliveryerCode != null">
+        c_order_deliveryer_code = #{cOrderDeliveryerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cOrderReceiverCode != null">
+        c_order_receiver_code = #{cOrderReceiverCode,jdbcType=VARCHAR},
+      </if>
+      <if test="cashTradeCode != null">
+        cash_trade_code = #{cashTradeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null">
+        company_code = #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="deptCode != null">
+        dept_code = #{deptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="favourMoney != null">
+        favour_money = #{favourMoney,jdbcType=BIGINT},
+      </if>
+      <if test="memberMobile != null">
+        member_mobile = #{memberMobile,jdbcType=VARCHAR},
+      </if>
+      <if test="memberName != null">
+        member_name = #{memberName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="orderDeliveryerName != null">
+        order_deliveryer_name = #{orderDeliveryerName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderNo != null">
+        order_no = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderReceiverName != null">
+        order_receiver_name = #{orderReceiverName,jdbcType=VARCHAR},
+      </if>
+      <if test="payMoney != null">
+        pay_money = #{payMoney,jdbcType=BIGINT},
+      </if>
+      <if test="payTime != null">
+        pay_time = #{payTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payTypeName != null">
+        pay_type_name = #{payTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=VARCHAR},
+      </if>
+      <if test="totalMoney != null">
+        total_money = #{totalMoney,jdbcType=BIGINT},
+      </if>
+      <if test="freightMoney != null">
+        freight_money = #{freightMoney,jdbcType=BIGINT},
+      </if>
+      <if test="orderReceiveDeptCode != null">
+        order_receive_dept_code = #{orderReceiveDeptCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payeeDeptCode != null">
+        payee_dept_code = #{payeeDeptCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xw.database.bean.cOrderDelivery">
+    update TD_SYS_C_ORDER_DELIVERY
+    set code = #{code,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      creator = #{creator,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      updater = #{updater,jdbcType=VARCHAR},
+      valid = #{valid,jdbcType=BIT},
+      version = #{version,jdbcType=INTEGER},
+      c_member_code = #{cMemberCode,jdbcType=VARCHAR},
+      c_order_deliveryer_code = #{cOrderDeliveryerCode,jdbcType=VARCHAR},
+      c_order_receiver_code = #{cOrderReceiverCode,jdbcType=VARCHAR},
+      cash_trade_code = #{cashTradeCode,jdbcType=VARCHAR},
+      company_code = #{companyCode,jdbcType=VARCHAR},
+      dept_code = #{deptCode,jdbcType=VARCHAR},
+      favour_money = #{favourMoney,jdbcType=BIGINT},
+      member_mobile = #{memberMobile,jdbcType=VARCHAR},
+      member_name = #{memberName,jdbcType=VARCHAR},
+      order_code = #{orderCode,jdbcType=VARCHAR},
+      order_deliveryer_name = #{orderDeliveryerName,jdbcType=VARCHAR},
+      order_no = #{orderNo,jdbcType=VARCHAR},
+      order_receiver_name = #{orderReceiverName,jdbcType=VARCHAR},
+      pay_money = #{payMoney,jdbcType=BIGINT},
+      pay_time = #{payTime,jdbcType=TIMESTAMP},
+      pay_type_name = #{payTypeName,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=VARCHAR},
+      total_money = #{totalMoney,jdbcType=BIGINT},
+      freight_money = #{freightMoney,jdbcType=BIGINT},
+      order_receive_dept_code = #{orderReceiveDeptCode,jdbcType=VARCHAR},
+      payee_dept_code = #{payeeDeptCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
